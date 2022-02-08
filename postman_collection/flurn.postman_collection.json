@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "da3953d7-28cc-4bb3-a675-dd88866dce0a",
+		"name": "flurn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetHits",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stats?url=localhost:1323/e&details=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stats"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "localhost:1323/e"
+						},
+						{
+							"key": "details",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetHitsCount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/stats?url=localhost:8000/e&details=count",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stats"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "localhost:8000/e"
+						},
+						{
+							"key": "details",
+							"value": "count"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetShort",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/register?url=https://google.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "https://google.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

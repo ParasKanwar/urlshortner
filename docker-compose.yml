@@ -1,0 +1,37 @@
+version: '3.7'
+services:
+    url_shortner:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - "8080:1323"
+      depends_on:
+        - postgres
+      restart: always
+      networks:
+        - default
+      links: 
+        - postgres
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=postgres
+        - POSTGRES_HOST=postgres
+    postgres:
+        image: postgres:10.5
+        restart: always
+        networks:
+            - default
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=postgres
+        ports:
+          - '5438:5432'
+        volumes: 
+          - ./postgres-data:/var/lib/postgresql/data
+          # copy the sql script to create tables
+          - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+networks:
+    default:
+      driver: bridge
